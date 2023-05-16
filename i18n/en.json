@@ -1,0 +1,10 @@
+{
+  "ui": {
+    "languageSwitcher": "Choose Language: "
+  },
+  "pages": {
+    "contact": {
+      "title": "Contact"
+    }
+  }
+}
