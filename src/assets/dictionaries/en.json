@@ -1,0 +1,16 @@
+{
+  "navigation": {
+    "about": "About",
+    "upcoming": "Upcoming",
+    "media": "Media",
+    "downloads": "Downloads",
+    "contact": "Contact"
+  },
+  "languageSwitcher": {
+    "changeLanguage": "Change Language"
+  },
+  "homepage": {
+    "welcome": "Welcome to the Website of Paddy's Last Order!",
+    "groupImageAlt": "Paddy's Last Order Musicians"
+  }
+}

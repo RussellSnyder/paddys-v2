@@ -1,0 +1,16 @@
+{
+  "navigation": {
+    "about": "Über Uns",
+    "upcoming": "Upcoming",
+    "media": "Media",
+    "downloads": "Downloads",
+    "contact": "Kontact"
+  },
+  "languageSwitcher": {
+    "changeLanguage": "Sprache wählen"
+  },
+  "homepage": {
+    "welcome": "Herzlich willkommen auf der Website von Paddy's Last Order!",
+    "groupImageAlt": "Paddy's Last Order Musiker"
+  }
+}

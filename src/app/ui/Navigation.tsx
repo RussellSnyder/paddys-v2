@@ -1,30 +1,43 @@
 "use client";
 
-import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { NavLink } from "../types";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { getDictionary } from "../[lang]/dictionaries";
 import { irishGroverFont } from "../fonts";
+import { SupportedLanguage } from "../types";
 
-const navLinks = [
+interface NavLink {
+  languageKey: string;
+  href: string;
+  fallbackLabel: string;
+  translatedName?: string;
+}
+const staticNavLinks: NavLink[] = [
   {
-    name: "About",
-    href: "/about",
+    languageKey: "about",
+    fallbackLabel: "About",
+    href: "about",
   },
   {
-    name: "Upcoming",
-    href: "/upcoming",
+    languageKey: "upcoming",
+    fallbackLabel: "Upcoming",
+    href: "upcoming",
   },
   {
-    name: "Media",
-    href: "/media",
+    languageKey: "media",
+    fallbackLabel: "Media",
+    href: "media",
   },
   {
-    name: "Downloads",
-    href: "/downloads",
+    languageKey: "downloads",
+    fallbackLabel: "Downloads",
+    href: "downloads",
   },
   {
-    name: "Contact",
-    href: "/contact",
+    languageKey: "contact",
+    fallbackLabel: "Contact",
+    href: "contact",
   },
 ];
 
@@ -32,7 +45,30 @@ const baseLinkeClassName = "text-white p-4 text-lg font-bold";
 const activeLinkClassName = "text-white underline underline-offset-4";
 const inActiveLinkClassName = "";
 
-export function Navigation() {
+interface Props {
+  locale: SupportedLanguage;
+}
+
+export function Navigation({ locale }: Props) {
+  const [navLinks, setNavLinks] = useState<NavLink[]>(staticNavLinks);
+
+  useEffect(() => {
+    async function setTranslations() {
+      const dictionary = await getDictionary(locale);
+
+      const enrichNavLinks = staticNavLinks?.map((entry) => ({
+        ...entry,
+        translatedName:
+          dictionary.navigation[
+            entry.languageKey as keyof typeof dictionary.navigation
+          ],
+      }));
+      setNavLinks(enrichNavLinks);
+    }
+
+    setTranslations();
+  }, [locale]);
+
   const pathname = usePathname();
 
   return (
@@ -41,11 +77,13 @@ export function Navigation() {
         <div
           className={`${irishGroverFont.className} flex-1 text-white text-2xl`}
         >
-          <Link href="/">Paddy&apos;s Last Order</Link>
+          <Link href="/" locale={locale}>
+            Paddy&apos;s Last Order
+          </Link>
         </div>
         <div className="flex-10">
           {navLinks.map((link) => {
-            const isActive = pathname.startsWith(link.href);
+            const isActive = pathname.includes(link.href);
 
             return (
               <Link
@@ -53,9 +91,10 @@ export function Navigation() {
                   isActive ? activeLinkClassName : inActiveLinkClassName
                 }`}
                 href={link.href}
-                key={link.name}
+                locale={locale}
+                key={link.fallbackLabel}
               >
-                {link.name}
+                {link.translatedName ?? link.fallbackLabel}
               </Link>
             );
           })}
