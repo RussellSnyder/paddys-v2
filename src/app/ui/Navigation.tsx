@@ -5,15 +5,34 @@ import Link from "next/link";
 import { NavLink } from "../types";
 import { irishGroverFont } from "../fonts";
 
-interface Props {
-  navLinks: NavLink[];
-}
+const navLinks = [
+  {
+    name: "About",
+    href: "/about",
+  },
+  {
+    name: "Upcoming",
+    href: "/upcoming",
+  },
+  {
+    name: "Media",
+    href: "/media",
+  },
+  {
+    name: "Downloads",
+    href: "/downloads",
+  },
+  {
+    name: "Contact",
+    href: "/contact",
+  },
+];
 
 const baseLinkeClassName = "text-white p-4 text-lg font-bold";
 const activeLinkClassName = "text-white underline underline-offset-4";
 const inActiveLinkClassName = "";
 
-export function Navigation({ navLinks }: Props) {
+export function Navigation() {
   const pathname = usePathname();
 
   return (
