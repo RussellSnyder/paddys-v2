@@ -7,34 +7,27 @@ import { irishGroverFont } from "../fonts";
 import { SupportedLanguage } from "../types";
 
 interface NavLink {
-  languageKey: string;
   href: string;
   label: string;
-  translatedName?: string;
 }
 const navLinks: NavLink[] = [
   {
-    languageKey: "about",
     label: "About",
     href: "about",
   },
   {
-    languageKey: "upcoming",
     label: "Upcoming",
     href: "upcoming",
   },
   {
-    languageKey: "media",
     label: "Media",
     href: "media",
   },
   {
-    languageKey: "downloads",
     label: "Downloads",
     href: "downloads",
   },
   {
-    languageKey: "contact",
     label: "Contact",
     href: "contact",
   },
@@ -44,11 +37,7 @@ const baseLinkeClassName = "text-white p-4 text-lg font-bold";
 const activeLinkClassName = "text-white underline underline-offset-4";
 const inActiveLinkClassName = "";
 
-interface Props {
-  locale: SupportedLanguage;
-}
-
-export function Navigation({ locale }: Props) {
+export function Navigation() {
   const pathname = usePathname();
 
   return (
@@ -57,9 +46,7 @@ export function Navigation({ locale }: Props) {
         <div
           className={`${irishGroverFont.className} flex-1 text-white text-2xl`}
         >
-          <Link href="/" locale={locale}>
-            Paddy&apos;s Last Order
-          </Link>
+          <Link href="/">Paddy&apos;s Last Order</Link>
         </div>
         <div className="flex-10">
           {navLinks.map((link) => {
@@ -71,7 +58,6 @@ export function Navigation({ locale }: Props) {
                   isActive ? activeLinkClassName : inActiveLinkClassName
                 }`}
                 href={link.href}
-                locale={locale}
                 key={link.label}
               >
                 {link.label}

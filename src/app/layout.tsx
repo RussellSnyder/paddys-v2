@@ -16,13 +16,11 @@ export async function generateStaticParams() {
 
 export default function RootLayout({
   children,
-  params,
 }: {
   children: React.ReactNode;
-  params: { lang: SupportedLanguage };
 }) {
   return (
-    <html lang={params.lang}>
+    <html lang="de">
       <Script
         async
         defer
@@ -33,7 +31,7 @@ export default function RootLayout({
       <body className={openSansFont.className}>
         <div id="fb-root"></div>
         <main className="flex min-h-screen flex-col p-2 max-w-screen-xl m-auto">
-          <Navigation locale={params.lang} />
+          <Navigation />
           <div className="p-4 max-w-screen-lg m-auto">{children}</div>
           <Footer />
         </main>
