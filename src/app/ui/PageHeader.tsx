@@ -5,5 +5,5 @@ interface Props {
 }
 
 export const PageHeader = ({ text }: Props) => (
-  <h1 className={`${irishGroverFont.className} text-4xl`}>{text}</h1>
+  <h1 className={`${irishGroverFont.className} text-4xl mb-10 mt-5`}>{text}</h1>
 );

@@ -10,7 +10,7 @@ import Image from "next/image";
 import GuinessImage from "../../assets/images/guiness.jpeg";
 
 export const metadata: Metadata = {
-  title: "About Paddy's Last Order",
+  title: "Kontakt | Paddy's Last Order",
 };
 
 interface ContactEntryProps {
