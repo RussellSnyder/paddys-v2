@@ -4,10 +4,10 @@ import {
   PhoneIcon,
   EnvelopeIcon,
 } from "@heroicons/react/24/solid";
-import { Card } from "../../ui/Card";
-import { PageHeader } from "../../ui/PageHeader";
+import { Card } from "../ui/Card";
+import { PageHeader } from "../ui/PageHeader";
 import Image from "next/image";
-import GuinessImage from "../../../assets/images/guiness.jpeg";
+import GuinessImage from "../../assets/images/guiness.jpeg";
 
 export const metadata: Metadata = {
   title: "About Paddy's Last Order",

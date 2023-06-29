@@ -1,10 +1,9 @@
-import { openSansFont } from "../fonts";
-import "../globals.css";
-import { Footer } from "../ui/Footer";
-import { Navigation } from "../ui/Navigation";
+import { openSansFont } from "./fonts";
+import "./globals.css";
+import { Footer } from "./ui/Footer";
+import { Navigation } from "./ui/Navigation";
 import Script from "next/script";
-import { SupportedLanguage } from "../types";
-import LocaleSwitcher from "../ui/LocaleSwitcher";
+import { SupportedLanguage } from "./types";
 
 export const metadata = {
   title: "Create Next App",
@@ -34,9 +33,6 @@ export default function RootLayout({
       <body className={openSansFont.className}>
         <div id="fb-root"></div>
         <main className="flex min-h-screen flex-col p-2 max-w-screen-xl m-auto">
-          <div className="flex justify-end">
-            <LocaleSwitcher />
-          </div>
           <Navigation locale={params.lang} />
           <div className="p-4 max-w-screen-lg m-auto">{children}</div>
           <Footer />

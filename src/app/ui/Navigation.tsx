@@ -3,40 +3,39 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { getDictionary } from "../[lang]/dictionaries";
 import { irishGroverFont } from "../fonts";
 import { SupportedLanguage } from "../types";
 
 interface NavLink {
   languageKey: string;
   href: string;
-  fallbackLabel: string;
+  label: string;
   translatedName?: string;
 }
-const staticNavLinks: NavLink[] = [
+const navLinks: NavLink[] = [
   {
     languageKey: "about",
-    fallbackLabel: "About",
+    label: "About",
     href: "about",
   },
   {
     languageKey: "upcoming",
-    fallbackLabel: "Upcoming",
+    label: "Upcoming",
     href: "upcoming",
   },
   {
     languageKey: "media",
-    fallbackLabel: "Media",
+    label: "Media",
     href: "media",
   },
   {
     languageKey: "downloads",
-    fallbackLabel: "Downloads",
+    label: "Downloads",
     href: "downloads",
   },
   {
     languageKey: "contact",
-    fallbackLabel: "Contact",
+    label: "Contact",
     href: "contact",
   },
 ];
@@ -50,25 +49,6 @@ interface Props {
 }
 
 export function Navigation({ locale }: Props) {
-  const [navLinks, setNavLinks] = useState<NavLink[]>(staticNavLinks);
-
-  useEffect(() => {
-    async function setTranslations() {
-      const dictionary = await getDictionary(locale);
-
-      const enrichNavLinks = staticNavLinks?.map((entry) => ({
-        ...entry,
-        translatedName:
-          dictionary.navigation[
-            entry.languageKey as keyof typeof dictionary.navigation
-          ],
-      }));
-      setNavLinks(enrichNavLinks);
-    }
-
-    setTranslations();
-  }, [locale]);
-
   const pathname = usePathname();
 
   return (
@@ -92,9 +72,9 @@ export function Navigation({ locale }: Props) {
                 }`}
                 href={link.href}
                 locale={locale}
-                key={link.fallbackLabel}
+                key={link.label}
               >
-                {link.translatedName ?? link.fallbackLabel}
+                {link.label}
               </Link>
             );
           })}
