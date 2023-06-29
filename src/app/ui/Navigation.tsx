@@ -2,9 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
 import { irishGroverFont } from "../fonts";
-import { SupportedLanguage } from "../types";
 
 interface NavLink {
   href: string;
