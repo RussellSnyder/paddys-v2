@@ -5,7 +5,7 @@ import { useEffect } from "react";
 export const Footer = () => {
   return (
     <div className="w-full p-4">
-      <div className="w-96 p-4 h-max m-auto rounded-md border-width-8 bg-yellow-700 border-yellow-700">
+      <div className="lg:w-96 p-4 h-max m-auto rounded-md border-width-8 lg:bg-yellow-700 border-yellow-700">
         <div
           className="fb-page m-auto"
           data-href="https://www.facebook.com/paddyslastorder/"

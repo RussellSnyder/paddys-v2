@@ -14,8 +14,12 @@ const DownloadEntry = ({
   isLast,
 }: Download & { isLast: boolean }) => (
   <li className={`${!isLast ? "border-b-2 " : ""}border-yellow-700`}>
-    <a className="p-4 block w-full" href={`/downloads/${file}`}>
-      {label} <ArrowDownTrayIcon className="inline ml-2" width={30} />
+    <a
+      className="p-4 block w-full flex justify-between"
+      href={`/downloads/${file}`}
+    >
+      <span className="lg:text-2xl font-bold">{label}</span>{" "}
+      <ArrowDownTrayIcon width={30} />
     </a>
   </li>
 );
