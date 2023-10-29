@@ -1,7 +1,7 @@
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { Metadata } from "next";
-import groupImage from "../assets/images/group.jpeg";
+import socialShare from "../assets/images/social-share.jpg";
 import { openSansFont } from "./fonts";
 import "./globals.css";
 import { Footer } from "./ui/Footer";
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     type: "website",
     phoneNumbers: "+49 151 61206586",
     emails: "kontakt@paddyslastorder.de",
-    images: groupImage.src,
+    images: socialShare.src,
     url: "paddyslastorder.de",
     countryName: "Germany",
   },
