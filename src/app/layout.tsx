@@ -3,6 +3,10 @@ import "./globals.css";
 import { Footer } from "./ui/Footer";
 import { Navigation } from "./ui/Navigation";
 import Script from "next/script";
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+config.autoAddCss = false;
+import "@fortawesome/fontawesome-svg-core/styles.css";
 
 export const metadata = {
   title: "Paddy's Last order",
