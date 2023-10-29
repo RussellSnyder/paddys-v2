@@ -1,0 +1,18 @@
+.upcoming {
+    border: 4px solid #A16207;
+    border-radius: 10px;
+    padding: 4px;
+}
+
+.upcoming h3 {
+    border-bottom: 4px solid #A16207;
+    margin-bottom: 5px;
+}
+
+.upcoming p {
+    margin-bottom: 5px;
+}
+.upcoming a {
+    color: green;
+    text-decoration: underline;
+}
