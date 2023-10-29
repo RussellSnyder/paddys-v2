@@ -19,7 +19,6 @@ export const metadata: Metadata = {
     phoneNumbers: "+49 151 61206586",
     emails: "kontakt@paddyslastorder.de",
     images: socialShare.src,
-    url: "paddyslastorder.de",
     countryName: "Germany",
   },
 };
