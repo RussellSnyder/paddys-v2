@@ -29,7 +29,7 @@ export default function DownloadsPage() {
     <div>
       <PageHeader text="Downloads" />
       <Card>
-        <ul className={`border-2 border-yellow-700`}>
+        <ul className={`border-4 border-yellow-700 bg-white`}>
           {downloads.map((download, i) => (
             <DownloadEntry
               key={download.file}

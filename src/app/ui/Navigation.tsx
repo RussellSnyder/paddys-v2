@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { irishGroverFont } from "../fonts";
 import { useEffect, useState } from "react";
+import { irishGroverFont } from "../fonts";
 import "./Navigation.css";
-import { useRouter } from "next/navigation";
+import { SocialMedia } from "./SocialMedia";
 
 interface NavLink {
   href: string;
@@ -17,12 +17,8 @@ const navLinks: NavLink[] = [
     href: "about",
   },
   {
-    label: "Upcoming",
-    href: "upcoming",
-  },
-  {
-    label: "Media",
-    href: "media",
+    label: "Social Media",
+    href: "social-media",
   },
   {
     label: "Downloads",
@@ -86,6 +82,9 @@ export function Navigation() {
             </svg>
           </div>
           <ul className="NAVIGATION-MOBILE-OPEN mt-32 flex flex-col items-center justify-between min-h-[250px]">
+            <li className={`${baseMobileClassName} ${inActiveLinkClassName}`}>
+              <Link href={"/"}>Home</Link>
+            </li>
             {navLinks.map((link) => {
               const isActive = pathname.includes(link.href);
 
@@ -101,6 +100,7 @@ export function Navigation() {
               );
             })}
           </ul>
+          <SocialMedia />
         </div>
       </section>
       <section className="DESKTOP-MENU hidden lg:flex justify-between items-center">

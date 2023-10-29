@@ -11,7 +11,7 @@ export default async function Home() {
   return (
     <div>
       <Image
-        className="md:mb-12 mb-2"
+        className="md:mb-6 mb-2"
         src={groupImage}
         alt={"paddy's group photo"}
       />

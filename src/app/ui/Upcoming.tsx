@@ -3,6 +3,7 @@ import { format } from "date-fns";
 import { useEffect, useState } from "react";
 import styles from "./Upcoming.module.css";
 import Image from "next/image";
+import { irishGroverFont } from "../fonts";
 
 var dateInPast = function (date: Date) {
   const currentDate = new Date();
@@ -39,8 +40,6 @@ export const Upcoming = () => {
 
   if (!upcomingData) return null;
 
-  const currentDate = format(new Date(), "yyyy-MM-dd");
-
   if (
     upcomingData.show_upcoming_until &&
     dateInPast(new Date(upcomingData.show_upcoming_until))
@@ -50,7 +49,9 @@ export const Upcoming = () => {
 
   return (
     <div className={`mb-6 ${styles.upcoming}`}>
-      <h3 className="text-xl text-center p-1">Upcoming</h3>
+      <h3 className={`${irishGroverFont.className} text-3xl text-center p-1`}>
+        Upcoming
+      </h3>
       <picture>
         <img src={upcomingData.image.url} alt="upcoming event image" />
       </picture>

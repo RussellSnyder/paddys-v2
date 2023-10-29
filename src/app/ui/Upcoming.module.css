@@ -11,6 +11,7 @@
 
 .upcoming p {
     margin-bottom: 5px;
+    font-size: large;
 }
 .upcoming a {
     color: green;
