@@ -1,15 +1,27 @@
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { Metadata } from "next";
+import groupImage from "../assets/images/group.jpeg";
 import { openSansFont } from "./fonts";
 import "./globals.css";
 import { Footer } from "./ui/Footer";
 import { Navigation } from "./ui/Navigation";
-import Script from "next/script";
-import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
-import "@fortawesome/fontawesome-svg-core/styles.css";
 
-export const metadata = {
+export const metadata: Metadata = {
+  metadataBase: process.env.NEXT_PUBLIC_METADATA_BASE
+    ? new URL(process.env.NEXT_PUBLIC_METADATA_BASE)
+    : new URL("https://paddys-last-order.netlify.app"),
   title: "Paddy's Last order",
   description: "Irische Musik in Deutschland spielen",
+  openGraph: {
+    type: "website",
+    phoneNumbers: "+49 151 61206586",
+    emails: "kontakt@paddyslastorder.de",
+    images: groupImage.src,
+    url: "paddyslastorder.de",
+    countryName: "Germany",
+  },
 };
 
 export default function RootLayout({
@@ -19,13 +31,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="de">
-      <Script
-        async
-        defer
-        crossOrigin="anonymous"
-        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v16.0"
-        nonce="QlVVPSyF"
-      />
       <body className={openSansFont.className}>
         <div id="fb-root"></div>
         <main className="flex min-h-screen flex-col p-2 max-w-screen-xl m-auto">
