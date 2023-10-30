@@ -20,11 +20,7 @@ interface ContactEntryProps {
 
 const ContactEntry = ({ Icon, text }: ContactEntryProps) => (
   <li className="md:flex px-2 text-center justify-between content-center items-center mb-6">
-    <Icon
-      width={50}
-      color="rgb(161 98 7)"
-      className="yellow-700 m-auto md:ml-0"
-    />
+    <Icon width={50} className="text-amber-700 m-auto md:ml-0" />
     <p className="md:ml-6 text-2xl">{text}</p>
   </li>
 );

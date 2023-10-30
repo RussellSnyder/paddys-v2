@@ -43,6 +43,7 @@ export const bandMemberImageMap = {
 
 interface DiscographyEntry {
   name: string;
+  date: number;
   image: StaticImageData;
   bandCampId?: string;
   bandCampLink?: string;
@@ -50,32 +51,37 @@ interface DiscographyEntry {
 
 export const discography: DiscographyEntry[] = [
   {
-    bandCampId: "3285839865",
-    bandCampLink:
-      "https://paddyslastorder.bandcamp.com/album/in-the-middle-of-the-tune",
-    name: "In the Middle of the Tune",
-    image: InTheMiddleOfTheTuneCover,
-  },
-  {
-    bandCampId: "2768487509",
-    bandCampLink:
-      "https://paddyslastorder.bandcamp.com/album/any-which-way-the-winds-may-blow",
-    name: "Any Which Way the Winds may Blow",
-    image: AnyWhichWayTheWindsMayBlowCover,
-  },
-  {
+    name: "Sick and Tired of Workin'",
+    date: 2012,
+    image: SickAndTiredOfWorkinCover,
     bandCampId: "3439254929",
     bandCampLink:
       "https://paddyslastorder.bandcamp.com/album/sick-and-tired-of-workin",
-    name: "Sick and Tired of Workin'",
-    image: SickAndTiredOfWorkinCover,
+  },
+  {
+    name: "Any Which Way the Winds may Blow",
+    date: 2014,
+    image: AnyWhichWayTheWindsMayBlowCover,
+    bandCampId: "2768487509",
+    bandCampLink:
+      "https://paddyslastorder.bandcamp.com/album/any-which-way-the-winds-may-blow",
   },
   {
     name: "It's always been the last to laugh",
+    date: 2015,
     image: ItsAlwaysBeenTheLastToLaughCover,
   },
   {
+    name: "In the Middle of the Tune",
+    date: 2017,
+    image: InTheMiddleOfTheTuneCover,
+    bandCampId: "3285839865",
+    bandCampLink:
+      "https://paddyslastorder.bandcamp.com/album/in-the-middle-of-the-tune",
+  },
+  {
     name: "Live at the hour after dark",
+    date: 2023,
     image: LiveAtTheHourAfterDark,
   },
 ];

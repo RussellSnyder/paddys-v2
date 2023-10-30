@@ -16,7 +16,7 @@ export default function AboutPage() {
   return (
     <div>
       <PageHeader text="About" />
-      <div className="mb-12 md:px-4 md:pb-6 md:border-l-4 border-yellow-700">
+      <div className="mb-12 md:px-4 md:pb-6 md:border-l-4 border-amber-700">
         <p className="text-lg mb-4 ">
           Man nehme zwei Gitarren, einen Bass, ein Banjo, eine Mandoline, eine
           Bodhrán, ein Akkordeon und eine Geige und gebe sie sechs fraglos
@@ -55,17 +55,17 @@ export default function AboutPage() {
           {bandMembersInfo.map(({ name, instrument }) => (
             <Card
               key={name}
-              className="border-yellow-700 bg-white border-4 rounded-xl relative"
+              className="border-amber-700 bg-white border-4 rounded-xl relative"
             >
               <Image
-                className="border-b-yellow-700 border-b-4"
+                className="border-b-amber-700 border-b-4"
                 src={
                   bandMemberImageMap[name as keyof typeof bandMemberImageMap][0]
                 }
                 alt={"paddy's group photo"}
               />
               <Image
-                className="border-b-yellow-700 border-b-4 opacity-0 hover:opacity-100 transition-opacity absolute top-0 left-0 right-0"
+                className="border-b-amber-700 border-b-4 opacity-0 hover:opacity-100 transition-opacity absolute top-0 left-0 right-0"
                 src={
                   bandMemberImageMap[name as keyof typeof bandMemberImageMap][1]
                 }
@@ -85,35 +85,42 @@ export default function AboutPage() {
       <div>
         <h2 className="text-4xl mb-6">Discography</h2>
         <div>
-          {discography.map(({ name, bandCampId, bandCampLink, image }) => {
-            const hasBandCampEmbed = bandCampId && bandCampLink;
+          {discography.map(
+            ({ name, date, image, bandCampId, bandCampLink }) => {
+              const hasBandCampEmbed = bandCampId && bandCampLink;
 
-            return (
-              <div key={name} className="grid md:grid-cols-2 mb-6 items-center">
-                <div className="mr-6 mb-4 ">
-                  <h4 className="md:hidden text-xl mb-4">{name}</h4>
-                  <Image className="" src={image} alt={`${name} cover`} />
-                </div>
-                <div className="">
-                  <h4 className="hidden md:block text-xl mb-4">{name}</h4>
+              return (
+                <div
+                  key={name}
+                  className="grid md:grid-cols-2 mb-6 items-center"
+                >
+                  <div className="mr-6 mb-4 ">
+                    <h4 className="md:hidden text-xl mb-4">{name}</h4>
+                    <Image className="" src={image} alt={`${name} cover`} />
+                  </div>
+                  <div className="">
+                    <h4 className="hidden md:block text-xl mb-4">
+                      {name} ({date})
+                    </h4>
 
-                  {hasBandCampEmbed ? (
-                    <div
-                      className="overflow-hidden"
-                      key={bandCampId}
-                      dangerouslySetInnerHTML={{
-                        __html: createBandcampEmbed(
-                          bandCampId,
-                          bandCampLink,
-                          name
-                        ),
-                      }}
-                    />
-                  ) : null}
+                    {hasBandCampEmbed ? (
+                      <div
+                        className="overflow-hidden"
+                        key={bandCampId}
+                        dangerouslySetInnerHTML={{
+                          __html: createBandcampEmbed(
+                            bandCampId,
+                            bandCampLink,
+                            name
+                          ),
+                        }}
+                      />
+                    ) : null}
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            }
+          )}
         </div>
       </div>
     </div>

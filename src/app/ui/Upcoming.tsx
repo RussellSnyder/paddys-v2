@@ -48,8 +48,12 @@ export const Upcoming = () => {
   }
 
   return (
-    <div className={`mb-6 ${styles.upcoming}`}>
-      <h3 className={`${irishGroverFont.className} text-3xl text-center p-1`}>
+    <div
+      className={`${styles.upcoming} mb-6 border-amber-700 border-4 rounded-xl p-4`}
+    >
+      <h3
+        className={`mb-4 border-b-4 border-amber-700 text-3xl text-center p-1`}
+      >
         Upcoming
       </h3>
       <picture>

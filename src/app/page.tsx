@@ -4,7 +4,7 @@ import groupImage from "../assets/images/group.jpeg";
 import { Upcoming } from "./ui/Upcoming";
 
 const text = {
-  welcome: "Herzlich willkommen auf der Website von Paddy's Last Order!",
+  welcome: "Céad Mile fáilte!",
 };
 
 export default async function Home() {

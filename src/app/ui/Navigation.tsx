@@ -44,7 +44,7 @@ export function Navigation() {
   }, [pathname]);
 
   return (
-    <nav className="bg-yellow-700 w-full p-4">
+    <nav className="bg-amber-700 w-full p-4">
       <section className="MOBILE-MENU flex justify-between lg:hidden">
         <div
           className={`${irishGroverFont.className} flex-2 text-white text-2xl`}
@@ -61,9 +61,7 @@ export function Navigation() {
           <span className="block h-1 w-10 bg-white"></span>
         </div>
 
-        <div
-          className={isNavOpen ? "showMenuNav bg-yellow-700" : "hideMenuNav"}
-        >
+        <div className={isNavOpen ? "showMenuNav bg-amber-700" : "hideMenuNav"}>
           <div
             className="CROSS-ICON absolute top-0 right-0 px-8 py-8"
             onClick={() => setIsNavOpen(false)} // change isNavOpen state to false to close the menu
